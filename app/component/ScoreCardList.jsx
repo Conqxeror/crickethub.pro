@@ -1,11 +1,9 @@
-// app\component\ScoreCardList.jsx
 'use client'
 
 import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
 import ScoreCard from "./ScoreCard";
-import { Card, CardContent } from "@/components/ui/card";
 
 import {
   Carousel,
@@ -20,7 +18,7 @@ export default function ScoreCardList() {
 
   useEffect(() => {
     axios
-      .get("https://cric-api-nine.vercel.app//matches")
+      .get("https://cric-api-nine.vercel.app/matches")
       .then((response) => {
         setScoreCards(response.data);
         console.log(response.data);
