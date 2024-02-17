@@ -17,7 +17,7 @@ export default function NewArticles() {
   const loadNews = () => {
     setIsLoading(true); // Set loading state to true before making the request
     axios
-      .get(`http://localhost:3001/fetch-news-all?page=${page}`)
+      .get(`https://cric-api-nine.vercel.app/fetch-news-all?page=${page}`)
       .then((response) => {
         setNews([...news, ...response.data]);
         setPage(page + 1);

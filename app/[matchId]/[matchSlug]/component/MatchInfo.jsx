@@ -13,7 +13,7 @@ export default function MatchInfo() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3001/live-cricket-match-info/${matchId}/${matchSlug}`)
+            .get(`https://cric-api-nine.vercel.app/live-cricket-match-info/${matchId}/${matchSlug}`)
             .then((response) => {
                 setInfo(response.data);
             })

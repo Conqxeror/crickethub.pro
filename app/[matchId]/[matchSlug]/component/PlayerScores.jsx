@@ -13,7 +13,7 @@ export default function PlayerScores() {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:3001/live-cricket-score/${matchId}/${matchSlug}`)
+          .get(`https://cric-api-nine.vercel.app/live-cricket-score/${matchId}/${matchSlug}`)
           .then((response) => {
             setScores(response.data);
           })

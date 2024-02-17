@@ -20,7 +20,7 @@ export default function ScoreCardList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/matches")
+      .get("https://cric-api-nine.vercel.app//matches")
       .then((response) => {
         setScoreCards(response.data);
         console.log(response.data);

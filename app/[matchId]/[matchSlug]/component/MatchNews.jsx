@@ -13,7 +13,7 @@ export default function MatchNews() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/fetch-news/${matchSlug}`, { cache: 'force-cache' })
+      .get(`https://cric-api-nine.vercel.app/fetch-news/${matchSlug}`, { cache: 'force-cache' })
       .then((response) => {
         setNews(response.data);
       })
