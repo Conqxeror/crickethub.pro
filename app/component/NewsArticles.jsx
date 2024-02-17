@@ -3,28 +3,29 @@
 import React, { useEffect, useState } from 'react';
 import NewsCard from './NewsCard';
 import axios from 'axios';
+import {Skeleton} from '@/components/ui/skeleton';
 
 export default function NewArticles() {
   const [news, setNews] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(1); // Initial page number
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false); // Add isLoading state
 
   useEffect(() => {
     loadNews();
-  }, []); // Load news on initial render
+  }, []);
 
   const loadNews = () => {
-    setIsLoading(true);
+    setIsLoading(true); // Set loading state to true before making the request
     axios
       .get(`http://localhost:3001/fetch-news-all?page=${page}`)
       .then((response) => {
-        setNews([...news, ...response.data]); // Append new data to existing news
-        setIsLoading(false);
-        setPage(page + 1); // Increment page number for next request
+        setNews([...news, ...response.data]);
+        setPage(page + 1);
+        setIsLoading(false); // Set loading state to false after receiving the response
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setIsLoading(false);
+        setIsLoading(false); // Make sure to set loading state to false in case of error too
       });
   };
 
@@ -32,19 +33,18 @@ export default function NewArticles() {
     <>
       <div>
         <h1 className="text-2xl font-bold">News Articles:</h1>
-        {news.map((article, index) => (
-          <NewsCard key={index} article={article} />
-        ))}
-      </div>
-      <div className='flex items-center justify-center flex-col'>
-        {isLoading && <p>Loading...</p>}
-        {!isLoading && (
-          <button onClick={loadNews} disabled={isLoading} className='text-white rounded-md font-bold p-3 bg-red-500 m-5'>
-            Load More
-          </button>
+        {news.length === 0 && isLoading ? (
+          <>
+            <Skeleton key={1} className="h-32 w-full rounded-lg mt-5" />
+            <Skeleton key={2} className="h-32 w-full rounded-lg mt-5" />
+            <Skeleton key={3} className="h-32 w-full rounded-lg mt-5" />
+          </>
+        ) : (
+          news.map((article, index) => (
+            <NewsCard key={index} article={article} />
+          ))
         )}
       </div>
     </>
-    
   );
 }
