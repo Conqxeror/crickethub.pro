@@ -14,13 +14,6 @@ export const metadata = {
     description: 'Get live scores, stats, player profiles, & analysis on CricketHub.pro. Stay updated on international, domestic, & T20 matches. Join thousands of fans!',
     url: 'https://crickethub-pro.vercel.app',
     siteName: 'CricketHub.pro',
-    images: [
-      {
-        url: './opengraph-image.jpg',
-        width: 800,
-        height: 600,
-      }
-    ],
     locale: 'en_US',
     type: 'website',
   }
