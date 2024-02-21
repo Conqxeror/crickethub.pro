@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ScoreCardList() {
   const [scoreCards, setScoreCards] = useState([]);
@@ -30,19 +31,24 @@ export default function ScoreCardList() {
 
   return (
     <div className="flex justify-center items-center p-6">
-      <Carousel className="w-full">
-        <CarouselPrevious />
-        <CarouselContent className="-ml-1">
-          {scoreCards.map((scoreCard, index) => (
-            <CarouselItem key={index} className="pb-5 md:basis-1/2 lg:basis-1/4">
-              <div>
-                <span className="text-2xl font-semibold"><ScoreCard scoreCard={scoreCard} /></span>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselNext />
-      </Carousel>
+      {scoreCards.length > 0 && (
+        <Carousel className="w-full">
+          <CarouselPrevious />
+          <CarouselContent className="-ml-1">
+            {scoreCards.map((scoreCard, index) => (
+              <CarouselItem key={index} className="pb-5 md:basis-1/2 lg:basis-1/4">
+                <div>
+                  <span className="text-2xl font-semibold"><ScoreCard scoreCard={scoreCard} /></span>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselNext />
+        </Carousel>
+      )
+      }
+      {scoreCards.length === 0 && <Skeleton className="h-80 w-full" />}
+
     </div>
   );
 }
