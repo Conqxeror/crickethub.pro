@@ -29,7 +29,7 @@ export default function ScoreCardList() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center h-80 w-80 pl-6">
+    <div className="flex justify-center items-center p-6">
       <Carousel className="w-full">
         <CarouselPrevious />
         <CarouselContent className="-ml-1">
