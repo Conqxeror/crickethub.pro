@@ -29,18 +29,20 @@ export default function ScoreCardList() {
   }, []);
 
   return (
+    <div className="flex justify-center items-center h-80 w-80 pl-6">
       <Carousel className="w-full">
         <CarouselPrevious />
         <CarouselContent className="-ml-1">
           {scoreCards.map((scoreCard, index) => (
             <CarouselItem key={index} className="pb-5 md:basis-1/2 lg:basis-1/4">
               <div>
-                  <span className="text-2xl font-semibold"><ScoreCard scoreCard={scoreCard}/></span>
+                <span className="text-2xl font-semibold"><ScoreCard scoreCard={scoreCard} /></span>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselNext />
       </Carousel>
+    </div>
   );
 }
