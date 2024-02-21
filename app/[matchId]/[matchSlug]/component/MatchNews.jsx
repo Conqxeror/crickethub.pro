@@ -13,14 +13,14 @@ export default function MatchNews() {
 
   useEffect(() => {
     axios
-      .get(`https://cric-api-nine.vercel.app/fetch-news/${matchSlug}`, { cache: 'force-cache' })
+      .get(`/api/get-match-news/${matchSlug}`)
       .then((response) => {
         setNews(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [matchSlug]); // Add matchSlug as a dependency
+  }, [matchSlug]); 
 
   return (
     <div>
