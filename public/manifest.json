@@ -1,0 +1,24 @@
+{
+  "id": "7861",
+  "name": "CricketHub.Pro",
+  "short_name": "CricketHub",
+  "description": "Get live scores, stats, player profiles, & analysis on CricketHub.pro. Stay updated on international, domestic, & T20 matches. Join thousands of fans!",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "./hero.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+        "src": "./hero.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+  ],
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait"
+}
